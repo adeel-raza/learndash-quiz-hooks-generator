@@ -33,3 +33,9 @@ Before installation please make sure you have latest LearnDash installed.
 
 1. Upload the plugin files to the `/wp-content/plugins/` directory, or install the plugin through the WordPress plugins screen directly.
 2. Activate the plugin through the 'Plugins' screen in WordPress
+
+# Support
+For any queries or issiues with making this plugin work reach me out here adeelraza77@gmail.com Also check out my other plugins that I have created previously,
+https://wordpress.org/plugins/adaptive-learning-with-learndash/
+https://wooninjas.com/wn-products/learndash-mycred-addon/
+
