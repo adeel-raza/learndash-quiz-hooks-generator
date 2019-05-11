@@ -36,6 +36,6 @@ Before installation please make sure you have latest LearnDash installed.
 
 # Support
 For any queries or issiues with making this plugin work reach me out here adeelraza77@gmail.com Also check out my other plugins that I have created previously,
-https://wordpress.org/plugins/adaptive-learning-with-learndash/
-https://wooninjas.com/wn-products/learndash-mycred-addon/
+1. https://wordpress.org/plugins/adaptive-learning-with-learndash/
+2. https://wooninjas.com/wn-products/learndash-mycred-addon/
 
