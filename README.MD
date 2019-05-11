@@ -12,7 +12,7 @@ All the files inside this directory can be overridden and used to add the custom
 To get started, one custom hook is already created through this addon, more can be created by developers according to their specific needs. See the sample **WpProQuiz_Model_QuestionMapper.php** file insde the model folder in the above path, you will have to just follow the same approach to override any other file. 
 
 As soon as you place the file correctly, the files placed inside the hook generator plugin will be loaded instead of the default LearnDash file. You can now modify the file to create your own hooks. 
-Notice the sample hook **"learndash_quiz_questions"** inside the file 
+Notice the sample hook **"ld_hook_generator_quiz_questions"** inside the file 
 `wp-content/plugins/learndash_hooks_generator/lib/model/
 WpProQuiz_Model_QuestionMapper.php` as an example.
 
@@ -21,10 +21,12 @@ A custom filter is already created with the plugin install. You will be able to 
 After plugin install, you can use this filter anywhere now,
 
 ```
-add_filter("learndash_quiz_questions", function( $quiz_data ) {});
+add_filter("ld_hook_generator_quiz_questions", function( $quiz_data ) {});
 ```
 `$quiz_data holds quiz questions to be displayed in your LearnDash Quiz you can alter them according to your specific development needs through this hook.`
 
+To make it simple I have already used this new hook `ld_hook_generator_quiz_questions` in the plugin to demonstrate how to customize the LD Quiz with custom hooks
+![Get started with customizing LD default Quiz](demo.png)
 # Installation
 
 Before installation please make sure you have latest LearnDash installed.
