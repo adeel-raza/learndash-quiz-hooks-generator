@@ -321,8 +321,7 @@ class WpProQuiz_Model_QuestionMapper extends WpProQuiz_Model_Mapper {
 				if ( ! empty( $questions ) ) {
 					$sql_str = "SELECT " . implode(', ', (array) $list ) . " FROM " . $this->_tableQuestion . " WHERE id IN (". implode(',', $questions) . ") AND online = 1";
 					$results = $this->_wpdb->get_results( $sql_str, ARRAY_A );
-					return apply_filters("ld_hook_generator_quiz_questions", $results);
-					//return $results;
+					return $results;
 				}
 			}
 		} else {
@@ -337,7 +336,6 @@ class WpProQuiz_Model_QuestionMapper extends WpProQuiz_Model_Mapper {
 							, $quizId),
 					ARRAY_A);
 			return apply_filters("ld_hook_generator_quiz_questions", $results);
-			//return $results;
 		}
 	}
 
