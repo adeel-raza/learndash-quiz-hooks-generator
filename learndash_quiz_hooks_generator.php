@@ -4,8 +4,8 @@
  * Plugin URI: https://github.com/adeel-raza/learndash-quiz-hooks-generator
  * Description: Enables developers to create new hooks to extend the capabilities of deafult LearnDash Quiz
  * Version: 1.2
- * Author: WooNinjas
- * Author URI: https://www.linkedin.com/in/adeel-raza/
+ * Author: Adeel Raza
+ * Author URI: https://elearningevolve.com
  * Text Domain: LDHG
  * License: GPLv2 or later
  */
