@@ -1,15 +1,11 @@
 <?php
-/**		
- * Overrides the LD class.		
- * 		
- * creates filter : ['ld_hook_generator_quiz_questions']		
- * 		
-*/
 class WpProQuiz_Model_QuestionMapper extends WpProQuiz_Model_Mapper {
 	private $_table;
 
 	public function __construct() {
 		parent::__construct();
+
+		//$this->_table = $this->_prefix."question";
 		$this->_table = $this->_tableQuestion;
 	}
 
@@ -217,7 +213,6 @@ class WpProQuiz_Model_QuestionMapper extends WpProQuiz_Model_Mapper {
 	}
 
 	public function fetchAll( $quizId = 0, $rand = false, $max = 0 ) {
-		
 		$quiz_post_id = 0;
 		if ( is_a( $quizId, 'WpProQuiz_Model_Quiz' ) ) {
 			$quiz = $quizId;
@@ -225,12 +220,20 @@ class WpProQuiz_Model_QuestionMapper extends WpProQuiz_Model_Mapper {
 			if ( empty( $quiz_post_id ) ) {
 				$quiz_post_id = $quiz->getPostId();
 			}
+		} else {
+			$quiz_post_id = learndash_get_question_post_by_pro_id( $quizId );
+			if ( empty( $quiz_post_id ) ) {
+				if ( ( isset( $_GET['post'] ) ) && ( ! empty( $_GET['post'] ) ) ) {
+					$quiz_post_id = learndash_get_quiz_id( absint( $_GET['post'] ) );
+				}
+			}
 		}
 
 		if ( ( ! empty( $quiz_post_id ) ) && ( LearnDash_Settings_Section::get_section_setting( 'LearnDash_Settings_Quizzes_Builder', 'enabled' ) === 'yes' ) && ( true === is_data_upgrade_quiz_questions_updated() ) ) {
 			$ld_quiz_questions_object = LDLMS_Factory_Post::quiz_questions( intval( $quiz_post_id ) );
 			if ( $ld_quiz_questions_object ) {
 				$pro_questions = $ld_quiz_questions_object->get_questions( 'pro_objects' );
+				$pro_questions = apply_filters( 'learndash_fetch_quiz_questions', $pro_questions, $quizId, $rand, $max );
 				if ( ! empty( $pro_questions ) ) {
 					if ( $rand ) {
 						//$pro_questions = array_rand( $pro_questions, intval( $max ) );
@@ -295,7 +298,7 @@ class WpProQuiz_Model_QuestionMapper extends WpProQuiz_Model_Mapper {
 
 			//custom filter
 			$results = apply_filters("ld_hook_generator_quiz_questions", $results);
-			
+
 			foreach($results as $row) {
 				$model = new WpProQuiz_Model_Question($row);
 
@@ -335,7 +338,8 @@ class WpProQuiz_Model_QuestionMapper extends WpProQuiz_Model_Mapper {
 									quiz_id = %d AND online = 1'
 							, $quizId),
 					ARRAY_A);
-			return apply_filters("ld_hook_generator_quiz_questions", $results);
+
+			return $results;
 		}
 	}
 

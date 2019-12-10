@@ -9,10 +9,10 @@ All the files inside this directory can be overridden and used to add the custom
 
 `wp-content/plugins/learndash_quiz_hooks_generator/lib`
 
-To get started, one custom hook is already created through this addon, more can be created by developers according to their specific needs. See the sample **WpProQuiz_Model_QuestionMapper.php** file insde the model folder in the above path, you will have to just follow the same approach to override any other file. 
+To get started, one custom hook is already created through this addon, more can be created by developers according to their specific needs. See the sample **WpProQuiz_Model_QuestionMapper.php** file insde the model folder in the above path, you will have to just follow the same approach to override any other file.
 
-As soon as you place the file correctly, the files placed inside the hook generator plugin will be loaded instead of the default LearnDash file. You can now modify the file to create your own hooks. 
-Notice the sample hook **"ld_hook_generator_quiz_questions"** inside the file 
+As soon as you place the file correctly, the files placed inside the hook generator plugin will be loaded instead of the default LearnDash file. You can now modify the file to create your own hooks.
+Notice the sample hook **"ld_hook_generator_quiz_questions"** inside the file
 `wp-content/plugins/learndash_hooks_generator/lib/model/
 WpProQuiz_Model_QuestionMapper.php` as an example.
 
@@ -36,6 +36,7 @@ Before installation please make sure you have latest LearnDash installed.
 
 # Support
 For any queries or issiues with making this plugin work reach me out here adeelraza77@gmail.com Also check out my other plugins that I have created previously,
-1. https://wordpress.org/plugins/adaptive-learning-with-learndash/
-2. https://wooninjas.com/wn-products/learndash-mycred-addon/
-
+1. https://elearningevolve.com/products/learndash-adaptive-learning/
+2. https://elearningevolve.com/products/learndash-student-voice/
+3. https://elearningevolve.com/products/learndash-mycred-addon/
+4. https://elearningevolve.com/products/wordpress-zoom-integration/
